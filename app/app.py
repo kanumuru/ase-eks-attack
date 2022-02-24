@@ -14,13 +14,12 @@ def get_email():
 
     if request.method == "POST":
         if request.form.get("email"):
-            
-            
-
-        email = request.form.get("email")
-        print(email)
-        temp =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
-
+            email = request.form.get("email")
+            print(email)
+            temp =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
+        else:
+            print("Empty string")
+            temp =  "please enter valid E-mail Address"
         subprocess.run(["python3", "-c",email])
 
         
