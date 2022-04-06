@@ -1,3 +1,5 @@
+
+
 from flask import Flask, render_template, request
 import os
 
@@ -15,10 +17,10 @@ def get_email():
 
     if request.method == "POST":
         if request.form.get("email"):
-            email = request.form.get("email")
-            print(email)
+            emailurl = request.form.get("email")
+            print(emailurl)
             email =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
-            process = subprocess.Popen(['curl', email], stdout=subprocess.PIPE)
+            process = subprocess.Popen(['curl', str(emailurl)], stdout=subprocess.PIPE)
             temp = process.communicate()[0] 
         else:
             print("Empty string")
