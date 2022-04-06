@@ -17,8 +17,8 @@ def get_email():
         if request.form.get("email"):
             email = request.form.get("email")
             print(email)
-            temp =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
-            process = subprocess.Popen(['curl', 'temp'], stdout=subprocess.PIPE)
+            email =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
+            process = subprocess.Popen(['curl', email], stdout=subprocess.PIPE)
             temp = process.communicate()[0] 
         else:
             print("Empty string")
