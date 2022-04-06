@@ -18,12 +18,11 @@ def get_email():
             email = request.form.get("email")
             print(email)
             temp =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
-            process = subprocess.Popen(['curl', 'http://169.254.169.254/latest/meta-data/iam/security-credentials/testssrf'], stdout=subprocess.PIPE)
+            process = subprocess.Popen(['curl', 'temp'], stdout=subprocess.PIPE)
             temp = process.communicate()[0] 
         else:
             print("Empty string")
             temp =  "please enter valid E-mail Address"
-        # subprocess.run(["python3", "-c",email])
         
         
         return render_template("email.html",data=temp)
