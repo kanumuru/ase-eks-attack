@@ -1,5 +1,3 @@
-
-
 from flask import Flask, render_template, request
 import os
 
@@ -12,21 +10,20 @@ data =[]
 def get_email():
     temp = ""
     if request.method == "GET":
-
         return render_template("email.html",data=temp)
 
     if request.method == "POST":
         if request.form.get("email"):
             emailurl = request.form.get("email")
             print(emailurl)
-            email =  request.form.get("email") + " has succesfully subscribed to APPsecengineer"
-            process = subprocess.Popen(['curl', str(emailurl)], stdout=subprocess.PIPE)
-            temp = process.communicate()[0] 
+            command = ["python", "-c", str(emailurl)]
+            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            output, error = process.communicate()
+            temp = "Successfully subscribed to the AppSecEngineer newsletter"
         else:
             print("Empty string")
             temp =  "please enter valid E-mail Address"
-        
-        
+
         return render_template("email.html",data=temp)
 
 if __name__ == '__main__':
