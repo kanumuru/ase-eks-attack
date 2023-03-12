@@ -16,7 +16,7 @@ def get_email():
         if request.form.get("email"):
             emailurl = request.form.get("email")
             print(emailurl)
-            command = ["python", "-c", str(emailurl)]
+            command = ["python3", "-c", str(emailurl)]
             process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             output, error = process.communicate()
             temp = "Successfully subscribed to the AppSecEngineer newsletter"
