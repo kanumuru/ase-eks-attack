@@ -9,7 +9,7 @@ RUN git clone https://github.com/cr0hn/dockerscan
 RUN pip3 install markupsafe==1.1.1
 RUN pip3 install Flask==0.12
 RUN apt-get update -y
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb |  bash
-# RUN curl https://releases.rancher.com/install-docker/20.10.sh | sh
+#RUN curl -sL https://aka.ms/InstallAzureCLIDeb |  bash
+RUN curl https://releases.rancher.com/install-docker/20.10.sh | sh
 RUN cd app
 CMD [ "python3","app/app.py"]
